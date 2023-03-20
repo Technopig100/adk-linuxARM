@@ -1,0 +1,37 @@
+19:37:44 INFO: Initializing mkimage
+19:37:44 INFO:              Architecture:   aarch64
+19:37:44 INFO:                   Edition:   minimal
+19:37:44 INFO:                   Version:   23-03-19
+19:37:44 INFO:         Working directory:   /home/jacob/Big_Build/ADK-LinuxARM/work/
+19:37:44 INFO:    Installation directory:   /home/jacob/Big_Build/ADK-LinuxARM/work/aarch64
+19:37:44 INFO:                Build date:   2023-03-19
+19:37:44 INFO:          Output directory:   /home/jacob/Big_Build/ADK-LinuxARM/out/
+19:37:44 INFO:                    Device:   rock5b
+19:37:44 INFO:                Filesystem:   ext4
+19:37:44 INFO:                Image type:   image
+19:37:44 INFO:           Image file name:   ADK-Linux-ARM-opi5-23-03-19
+19:37:44 INFO:             Packages File:   /home/jacob/Big_Build/ADK-LinuxARM/minimal-opi5-image/packages.aarch64
+19:37:44 INFO: Copying files to /home/jacob/Big_Build/ADK-LinuxARM/work/aarch64
+19:37:44 INFO: Install dir is:/home/jacob/Big_Build/ADK-LinuxARM/work/aarch64
+19:37:44 INFO: Running pacstrap
+19:42:29 INFO: Pacstrap complete
+19:42:30 INFO: Partitioning rock5b
+19:42:30 INFO: Creating image file ADK-Linux-ARM-opi5-23-03-19.img
+19:45:27 INFO: Attaching image file ADK-Linux-ARM-opi5-23-03-19.img to loop device /dev/loop0
+19:45:27 INFO: 
++-----------------------------------------------+
+|             /dev/loop0 Size 4128M             |
++-----------+-------+------+-------+------------+
+| Partition | Start | End  |  Size | Filesystem |
++-----------+-------+------+-------+------------+
+|   uboot   |   0%  | 16M  |  16M  |    NONE    |
+|    boot   |  16M  | 150M |  134M |   fat32    |
+|    root   |  150M | 100% | 3978M |    ext4    |
++-----------+-------+------+-------+------------+
+19:46:08 INFO: Partitioned rock5b successfully
+19:46:08 INFO: Copying files to /home/jacob/Big_Build/ADK-LinuxARM/work/mnt/
+19:51:44 INFO: Unmounting!
+19:51:59 INFO: Compressing ADK-Linux-ARM-opi5-23-03-19.img
+20:01:26 INFO: Compressed ADK-Linux-ARM-opi5-23-03-19.img
+20:01:26 INFO: Cleaning up
+20:01:44 INFO: Total time taken: 00:24:00
