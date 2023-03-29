@@ -1,5 +1,0 @@
-#! /bin/sh
-#/bin/pacman -Rncsu --noconfirm adk-calamares adkarm-xfce-calamares-config
-/usr/bin/systemctl disable remove-calamares.service
-/usr/bin/rm -rf /usr/lib/systemd/system/remove-calamares.service
-/usr/bin/rm -rf /usr/bin/remove-calamares

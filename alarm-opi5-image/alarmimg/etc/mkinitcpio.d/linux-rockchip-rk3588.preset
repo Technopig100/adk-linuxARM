@@ -1,0 +1,10 @@
+# mkinitcpio preset file for the 'linux-rockchip-rk3588' package
+
+ALL_config="/etc/mkinitcpio.conf"
+ALL_kver="5.10.110-rockchip-rk3588"
+
+PRESETS=('default')
+
+#default_config="/etc/mkinitcpio.conf"
+default_image="/boot/initramfs-linux-rockchip-rk3588.img"
+#default_options=""

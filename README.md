@@ -15,17 +15,9 @@ GNU GPL v3
 
 In this repository you'll find:
 
--  ADK-LinuxARM Rolling ISO Builder for ADK-LinuxARM and It's Flavors!
-
-To build you will need to install:
-
--  adk-linux-keyring
--  adk-mirrorlist
-
-Download and or build archiso, adk-linux-keyring & adk-mirrorlist:
-
--  git clone https://github.com/Technopig100/adk-pkgbuild.git
--  sudo pacman -U adk-linux-keyring adk-mirrorlist
--  sudo pacman -Sy archiso
-
-### Start building your own ADK-LinuxARM Rolling version with the use of this script!
+# alarm-opi5-image
+Files for creating an arch linux arm Orange pi 5 image
+Usage
+```
+sudo ./mkimage.py -w /var/cache/build/ -o ./out/ -c ./alarm-opi5-image/
+```
