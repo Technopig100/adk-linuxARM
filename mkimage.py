@@ -212,7 +212,7 @@ def partition_rpi(disk,fs,img_size):
         os.mkdir(mnt_dir)
     p2 = disk+"p2 "
     if fs == "btrfs":
-        subprocess.run("mkfs.btrfs -f -L ROOTFS " + p2,shell=True)
+        subprocess.run("mkfs.btrfs -f -L ROOT " + p2,shell=True)
         subprocess.run("mount -t btrfs -o compress=zstd " + p2 + mnt_dir,shell=True)
         subprocess.run("btrfs subvolume create " + mnt_dir + "/@",shell=True)
         subprocess.run("btrfs subvolume create " + mnt_dir + "/@home",shell=True)
@@ -221,7 +221,7 @@ def partition_rpi(disk,fs,img_size):
         os.mkdir(mnt_dir + "/home")
         subprocess.run("mount -t btrfs -o compress=zstd,subvol=@home " + p2 + mnt_dir + "/home",shell=True)
     if fs == "ext4":
-        subprocess.run("mkfs.ext4 -F -L ROOTFS " + p2,shell=True)
+        subprocess.run("mkfs.ext4 -F -L ROOT " + p2,shell=True)
         subprocess.run("mount " + p2 + mnt_dir,shell=True)
     os.mkdir(mnt_dir + "/boot")
 
@@ -253,7 +253,7 @@ def partition_rock5b(disk,fs,img_size):
     if not os.path.exists(mnt_dir):
         os.mkdir(mnt_dir)
     if fs == "ext4":
-        subprocess.run("mkfs.ext4 -F -L ROOTFS " + disk + "p2",shell=True)
+        subprocess.run("mkfs.ext4 -F -L ROOT " + disk + "p2",shell=True)
         subprocess.run("mount " + disk + "p2 " + mnt_dir,shell=True)
         os.mkdir(mnt_dir + "/boot")   
     else:
@@ -284,11 +284,11 @@ def partition_vim4_sd(disk,fs,img_size):
         os.mkdir(mnt_dir)
     p2 = disk+"p2 "
     if fs == "ext4":
-        subprocess.run("mkfs.ext4 -F -L ROOTFS " + disk + "p2",shell=True)
+        subprocess.run("mkfs.ext4 -F -L ROOT " + disk + "p2",shell=True)
         subprocess.run("mount " + disk + "p2 " + mnt_dir,shell=True)
         os.mkdir(mnt_dir + "/boot")
     if fs == "btrfs":
-        subprocess.run("mkfs.btrfs -f -L ROOTFS " + p2,shell=True)
+        subprocess.run("mkfs.btrfs -f -L ROOT " + p2,shell=True)
         subprocess.run("mount -t btrfs -o compress=zstd " + p2 + mnt_dir,shell=True)
         subprocess.run("btrfs subvolume create " + mnt_dir + "/@",shell=True)
         subprocess.run("btrfs subvolume create " + mnt_dir + "/@home",shell=True)
@@ -345,7 +345,7 @@ def partition_rockpro(disk,fs,img_size):
         os.mkdir(mnt_dir)
     p1 = disk+"p1 "
     if fs == "btrfs":
-        subprocess.run("mkfs.btrfs -f -L ROOTFS " + p1,shell=True)
+        subprocess.run("mkfs.btrfs -f -L ROOT " + p1,shell=True)
         subprocess.run("mount -t btrfs -o compress=zstd " + p1 + mnt_dir,shell=True)
         subprocess.run("btrfs subvolume create " + mnt_dir + "/@",shell=True)
         subprocess.run("btrfs subvolume create " + mnt_dir + "/@home",shell=True)
@@ -354,7 +354,7 @@ def partition_rockpro(disk,fs,img_size):
         os.mkdir(mnt_dir + "/home")
         subprocess.run("mount -t btrfs -o compress=zstd,subvol=@home " + p1 + mnt_dir + "/home",shell=True)
     if fs == "ext4":
-        subprocess.run("mkfs.ext4 -F -L ROOTFS " + p1,shell=True)
+        subprocess.run("mkfs.ext4 -F -L ROOT " + p1,shell=True)
         subprocess.run("mount " + p1 + mnt_dir,shell=True)
 
 def create_fstab(fs):
