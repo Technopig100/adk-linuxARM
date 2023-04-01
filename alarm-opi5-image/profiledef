@@ -3,7 +3,7 @@ import time
 
 img_version=time.strftime("%Y-%m-%d")
 edition="alarm" # home, security 
-device="rock5b" # rpi more will be added soon
+device="orangepi5" # rpi more will be added soon
 arch="aarch64" # aarch64, armv7h
 img_name="Archlinux-ARM-opi5-" + img_version
 install_dir="alarmimg"

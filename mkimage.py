@@ -81,10 +81,10 @@ def verify_config():
     else:
         logging.error("Filesystem not supported use ext4 or btrfs")
         exit(1)
-    if device == 'rpi' or device == 'rock5b' or device == 'generic' or device == 'vim4-sd':
+    if device == 'rpi' or device == 'orangepi5' or device == 'generic' or device == 'vim4-sd':
         pass
     else:
-        logging.error("Device not supported use rpi, rock5b or generic")
+        logging.error("Device not supported use rpi, orangepi5 or generic")
         exit(1)
     if not os.path.isfile(packages_file):
         logging.error("packages file doesnt exist create the file packages." + arch)
@@ -225,7 +225,7 @@ def partition_rpi(disk,fs,img_size):
         subprocess.run("mount " + p2 + mnt_dir,shell=True)
     os.mkdir(mnt_dir + "/boot")
 
-def partition_rock5b(disk,fs,img_size):
+def partition_orangepi5(disk,fs,img_size):
     table=[
         ["Partition", "Start", "End","Size", "Filesystem"],
         ["uboot", "0%", "16M", "16M", "NONE"],
@@ -467,18 +467,18 @@ def main():
         unmount()
         compressimage(img_name)
         cleanup()
-    elif device == "rock5b":
+    elif device == "orangepi5":
         copyfiles(config_dir+ "/alarmimg",install_dir)
         pacstrap_packages(pacman_conf, packages_file, install_dir)
         subprocess.run(' '.join(["rm", "-rf",
             install_dir + "/etc/machine-id",
             install_dir + "/var/lib/dbus/machine-id"]),shell=True)
         subprocess.run(["sh", config_dir + "/fixperms.sh", install_dir])
-        logging.info("Partitioning rock5b")
+        logging.info("Partitioning orangepi5")
         rootfs_size=int(subprocess.check_output(["du", "-s", install_dir]).split()[0].decode("utf-8"))
         img_size,ldev = makeimg(rootfs_size,fs,img_name,img_backend)
-        partition_rock5b(ldev, fs, img_size)
-        logging.info("Partitioned rock5b successfully")
+        partition_orangepi5(ldev, fs, img_size)
+        logging.info("Partitioned orangepi5 successfully")
         if not os.path.exists(mnt_dir):
             os.mkdir(mnt_dir)
         subprocess.run("mount " + ldev+"p1 " + mnt_dir + "/boot",shell=True)
